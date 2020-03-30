@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/register.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h2>TO-DO</h2>
+            <div class="menu">
+                <a href="index.html">Home</a>
+                <a href="login.html">Login</a>
+                <a href="">Register</a>
+            </div>
+        </header>
+
+        <section class="main">
+            <div class="reg">
+                <h2>Register</h2>
+                    <div class="inputbox">
+                        <input type="text" name="fname" placeholder="First Name" id="fname" required>
+
+                        <input type="text" name="lname" placeholder="Last Name" id="lname" required>
+
+                        <input type="email" name="email" placeholder="e-Mail" id="email" required>
+
+                        <textarea name="addr" placeholder="Address" id="addr"></textarea>
+
+                        <input type="password" name="pwd" placeholder="Password" id="pwd" required>
+                        
+                        <input type="text" name="user" placeholder="Confirm Password" oninput="pwdCheck(this.value)" id="conpwd" required>
+
+                        <p id="pwdCheck"></p><br>
+                        Gender :
+                        <input type="radio" name="gender" value="M" id="genM" onclick="getRadio(this.value)">Male
+                        <input type="radio" name="gender" value="F" id="genF" onclick="getRadio(this.value)">Female
+                    </div>
+
+                    <div>
+                        Profile Image:
+                        <input type="file" name="profile" id="file">
+                    </div>
+
+                    <div class="bottom">
+                        <input type="Submit" onclick="registerUser()" value="Submit">
+                        Already a User? <a href="login.html">Login Here</a>
+                    </div>
+            </div>
+        </section>
+
+    </div>
+    <script src="js/register.js"></script>
+</body>
+
+</html>

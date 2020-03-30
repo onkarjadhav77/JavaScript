@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+    
+    <div class="container">
+        <header>
+            <h2>TO-DO</h2>
+            <div class="menu">
+                <a href="index.html">Home</a>
+                <a href="">Login</a>
+                <a href="register.html">Register</a>
+            </div>
+        </header>
+
+        <section class="main">
+            <div class="reg">
+                <h2>Login</h2>
+                    <div class="inputbox">
+                        <input type="text" name="email" placeholder="Email" id="email" required>
+
+                        <input type="text" name="pwd" placeholder="Password" id="pwd" required>
+
+                        <p id="msg"></p>
+                    </div>
+
+                    <div class="bottom">
+                        <input type="Submit" onclick="loginUser()" value="Login">
+                        New User? <a href="register.html">Register Here</a>
+                    </div>
+            </div>
+        </section>
+
+    </div>
+    <script src="js/login.js"></script>
+
+</body>
+</html>
