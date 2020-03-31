@@ -23,18 +23,21 @@
         <section class="main">
             <div class="reg">
                 <h2>Register</h2>
+                <form onsubmit="return registerUser()" action="login.html">
                     <div class="inputbox">
                         <input type="text" name="fname" placeholder="First Name" id="fname" required>
 
                         <input type="text" name="lname" placeholder="Last Name" id="lname" required>
 
-                        <input type="email" name="email" placeholder="e-Mail" id="email" required>
+                        <input type="email" name="email" oninput="return emailCheck(this.value)" placeholder="e-Mail" id="email" required>
 
-                        <textarea name="addr" placeholder="Address" id="addr"></textarea>
+                        <p id="emailCheck"></p>
+
+                        <textarea name="addr" placeholder="Address" id="addr" required></textarea>
 
                         <input type="password" name="pwd" placeholder="Password" id="pwd" required>
                         
-                        <input type="text" name="user" placeholder="Confirm Password" oninput="pwdCheck(this.value)" id="conpwd" required>
+                        <input type="password" name="user" placeholder="Confirm Password" oninput="return pwdCheck(this.value)" id="conpwd" required>
 
                         <p id="pwdCheck"></p><br>
                         Gender :
@@ -48,9 +51,10 @@
                     </div>
 
                     <div class="bottom">
-                        <input type="Submit" onclick="registerUser()" value="Submit">
+                        <input type="Submit" id="submit" value="Submit">
                         Already a User? <a href="login.html">Login Here</a>
                     </div>
+                </form>
             </div>
         </section>
 

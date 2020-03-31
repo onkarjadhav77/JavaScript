@@ -22,18 +22,20 @@
         <section class="main">
             <div class="reg">
                 <h2>Login</h2>
+                <form onsubmit="return loginUser()" action="todo.html">
                     <div class="inputbox">
                         <input type="text" name="email" placeholder="Email" id="email" required>
 
-                        <input type="text" name="pwd" placeholder="Password" id="pwd" required>
+                        <input type="password" name="pwd" placeholder="Password" id="pwd" required>
 
                         <p id="msg"></p>
                     </div>
 
                     <div class="bottom">
-                        <input type="Submit" onclick="loginUser()" value="Login">
+                        <input type="Submit" value="Login">
                         New User? <a href="register.html">Register Here</a>
                     </div>
+                </form>
             </div>
         </section>
 

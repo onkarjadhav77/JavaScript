@@ -15,7 +15,36 @@ function getRadio(value) {
 
 }
 
+function emailCheck(value) {
+    if (value !== "" || value !== null) {
+        if (localStorage.getItem(value) === null) {
+            document.getElementById("emailCheck").innerHTML = "";
+            return true;
+        }
+        else {
+            document.getElementById("emailCheck").innerHTML = "Email is Already exist";
+            return false;
+        }
+    }
+    else {
+        document.getElementById("emailCheck").innerHTML = "Email can't be empty";
+        return false;
+    }
+}
+
+function pwdCheck(value) {
+    if (value !== document.getElementById("pwd").value) {
+        document.getElementById("pwdCheck").innerHTML = "Password Not Matched";
+        // return false;
+    }
+    else {
+        document.getElementById("pwdCheck").innerHTML = "";
+        // return true;
+    }
+}
+
 function registerUser() {
+
     newUser.fname = document.getElementById("fname").value;
     newUser.lname = document.getElementById("lname").value;
     newUser.email = document.getElementById("email").value;
@@ -23,9 +52,16 @@ function registerUser() {
     newUser.pwd = document.getElementById("pwd").value;
     newUser.file = document.getElementById("file").value;
 
-    localStorage.setItem("user", JSON.stringify(newUser));
-    console.log("Registered Successfully");
-    clear();
+        if (emailCheck(newUser.email) == true) {
+
+        localStorage.setItem(newUser.email, JSON.stringify(newUser));
+        alert("Registered Successfully");
+        clear();
+        return true;
+    }
+    else{
+        return false;
+    }
 }
 
 function clear() {
@@ -36,15 +72,15 @@ function clear() {
     document.getElementById("pwd").value = null;
     document.getElementById("file").value = null;
     document.getElementById("conpwd").value = null;
-    document.getElementById("genM").checked = false;
-    document.getElementById("gen").checked = false;
-}
-
-function pwdCheck(value) {
-    if (value !== document.getElementById("pwd").value) {
-        document.getElementById("pwdCheck").innerHTML = "Password Not Match";
+    if (document.getElementById("genM").checked == true) {
+        document.getElementById("genM").checked = false;
     }
     else {
-        document.getElementById("pwdCheck").innerHTML = null;
+        document.getElementById("genF").checked = false;
     }
 }
+
+
+
+
+

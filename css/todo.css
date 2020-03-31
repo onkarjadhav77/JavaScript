@@ -1,0 +1,48 @@
+* {
+    box-sizing: border-box;
+}
+
+body{
+    height: 100%;
+    width: 100%;
+    background-image: url("../images/profession.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+header {
+    overflow: hidden;
+    padding: 10px 100px;
+    background-color:#063342;
+    border-bottom: 1px solid white;
+    color:white;
+    width: 100%;
+}
+
+header h2{
+    float: left;
+    font-size: 28px;
+}
+
+.menu {
+    float: right;
+    padding: 5px 0;
+}
+
+.menu a {
+    text-decoration: none;
+    margin-left: 50px;
+    color:white;
+}
+
+.main{
+    padding: 100px 0;
+}
+
+.todoBlock{
+    height: 400px;
+    width: 1000px;
+    margin: auto;
+    background-color: #e7ff11;
+}
+
