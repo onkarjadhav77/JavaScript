@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/newTask.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <header>
+            <h2>TO-DO</h2>
+            <div class="menu">
+                <a href="todo.html">Board</a>
+                <a onclick="logout()" href="login.html">Logout</a>
+            </div>
+        </header>
+
+        <section class="main">
+            <div class="reg">
+                <form onsubmit="" action="todo.html">
+                <h2>Add New Task</h2>
+                <div class="inputbox">
+                    <label for="task">Task <span>*</span> : </label><br>
+                    <input type="text" name="task" id="task" required>
+
+                    <div>
+                    <label for="">Category : </label><br>
+                    <select name="" id="category">
+                        <option value="">Personal</option>
+                        <option value="">Office</option>
+                        <option value="">Other</option>
+                    </select>
+                </div>
+
+                    <label for="">Start Date : </label>
+                    <input type="date" name="startDate" min="" id="startDate">
+
+                    <label for="">End Date : </label>
+                    <input type="date" name="endDate" id="endDate">
+
+                    <label for="">Reminder Date : </label>
+                    <input type="date" name="endDate" min="" id="remDate">
+
+                    <input type="hidden" name="status" value="Pending">
+                    <label for="">Privacy : </label>
+                    <input type="radio" name="" id="">Public
+                    <input type="radio" name="" id="">Private
+                </div>
+
+                <div class="bottom">
+                    <input type="Submit" id="submit" value="Submit">
+                </div>
+            </form>
+            </div>
+            
+        </section>
+
+    </div>
+    <script src="js/newTask.js"></script>
+
+</body>
+
+</html>

@@ -36,7 +36,7 @@ header h2 {
 }
 
 .main {
-    padding: 100px;
+    padding: 50px;
 }
 
 .reg {
@@ -62,7 +62,7 @@ header h2 {
     border: none;
 }
 
-.reg .inputbox input {
+.reg .inputbox input{
     width: 100%;
     padding: 10px 0;
     font-size: 16px;
@@ -77,15 +77,15 @@ header h2 {
 .bottom {
     text-align: center;
     color: white;
+    overflow: hidden;
 }
 
-.reg input[type="Submit"] {
-    background: transparent;
+.reg input[type="Submit"] , select{
     color: white;
     border: none;
     width: 100%;
     outline: none;
-    background: blue;
+    background: #2c5666;
     padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
@@ -93,11 +93,24 @@ header h2 {
     margin-bottom: 10px;
 }
 
-.reg a {
+label{
     color: white;
-    font-size: 14px;
+    font-size: 16px;
 }
 
-p {
+select{
+    margin: 10px 0 20px;
+}
+
+.reg input[type="date"] {
+    margin-bottom: 20px;
+}
+
+.reg input[type="radio"] {
+    width: auto;
+    margin: 10px 10px 20px;
+}
+
+span{
     color: red;
 }

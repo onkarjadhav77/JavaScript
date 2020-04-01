@@ -1,32 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title> 
+    <title>Document</title>
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/todo.css">
 </head>
+
 <body>
-    
+
     <div class="container">
         <header>
             <h2>TO-DO</h2>
             <div class="menu">
                 <a href="profile.html">Profile</a>
-                <a href="index.html">Logout</a>
+                <a href="login.html" onclick="logout()">Logout</a>
             </div>
         </header>
 
         <section class="main">
 
-            <div class="todoBlock">
+            <div class="reg">
+                <div class="head">
+                    <div class="leftHead">
+                    <button onclick="window.location.href='newTask.html'">Add New Item</button>
+                </div>
+                <div class="rightHead">
+                    <input type="search" placeholder="Search" id="search">
+                    <select name="" id="category">
+                        <option value="All">All</option>
+                        <option value="Personal">Personal</option>
+                        <option value="Office">Office</option>
+                        <option value="Other">Other</option>
+                    </select>
+                    <button>Done</button>
+                    <button>Delete</button>
+                </div>
+                </div>
 
+                <div class="list">
+                    <table style="width: 100%;">
+                        <tr>
+                            <th><input type="checkbox" name="" id=""></th>
+                            <th>Category</th>
+                            <th>Task(s)</th>
+                            <th>Start Date</th>
+                            <th>End Date</th>
+                            <th>Status</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
+                        </tr>
+
+                        <tr>
+                            <td><input type="checkbox" name="" id=""></td>
+                            <td>Cat 1</td>
+                            <td>Task 1</td>
+                            <td>Date</td>
+                            <td>Date</td>
+                            <td>Pending...</td>
+                            <td><button onclick="window.location.href='newTask.html'">Edit</button></td>
+                            <td><button>Delete</button></td>
+                        </tr>
+                    </table>
+                </div>
             </div>
-            
+
         </section>
 
     </div>
-
+    <script src="js/todo.js"></script>
 </body>
+
 </html>

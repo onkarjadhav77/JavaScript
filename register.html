@@ -25,24 +25,26 @@
                 <h2>Register</h2>
                 <form onsubmit="return registerUser()" action="login.html">
                     <div class="inputbox">
-                        <input type="text" name="fname" placeholder="First Name" id="fname" required>
+                        <input type="text" name="fname" placeholder="First Name*" id="fname" required>
 
-                        <input type="text" name="lname" placeholder="Last Name" id="lname" required>
+                        <input type="text" name="lname" placeholder="Last Name*" id="lname" required>
 
-                        <input type="email" name="email" oninput="return emailCheck(this.value)" placeholder="e-Mail" id="email" required>
+                        <input type="email" name="email" oninput="return emailCheck(this.value)" placeholder="e-Mail*"
+                            id="email" required>
 
                         <p id="emailCheck"></p>
 
-                        <textarea name="addr" placeholder="Address" id="addr" required></textarea>
+                        <textarea name="addr" placeholder="Address" id="addr"></textarea>
 
-                        <input type="password" name="pwd" placeholder="Password" id="pwd" required>
-                        
-                        <input type="password" name="user" placeholder="Confirm Password" oninput="return pwdCheck(this.value)" id="conpwd" required>
+                        <input type="password" name="pwd" placeholder="Password*" id="pwd" required>
+
+                        <input type="password" name="user" placeholder="Confirm Password*"
+                            oninput="return pwdCheck(this.value)" id="conpwd" required>
 
                         <p id="pwdCheck"></p><br>
                         Gender :
-                        <input type="radio" name="gender" value="M" id="genM" onclick="getRadio(this.value)">Male
-                        <input type="radio" name="gender" value="F" id="genF" onclick="getRadio(this.value)">Female
+                        <input type="radio" name="gender" value="M" id="genM" onclick="getRadio(this.value)"><label for="">Male</label>  
+                        <input type="radio" name="gender" value="F" id="genF" onclick="getRadio(this.value)"><label for="">Female</label> 
                     </div>
 
                     <div>

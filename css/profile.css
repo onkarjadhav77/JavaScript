@@ -2,7 +2,7 @@
     box-sizing: border-box;
 }
 
-body{
+body {
     height: 100%;
     width: 100%;
     background-image: url("../images/profession.jpg");
@@ -13,13 +13,13 @@ body{
 header {
     overflow: hidden;
     padding: 10px 100px;
-    background-color:#063342;
+    background-color: #063342;
     border-bottom: 1px solid white;
-    color:white;
+    color: white;
     width: 100%;
 }
 
-header h2{
+header h2 {
     float: left;
     font-size: 28px;
 }
@@ -32,75 +32,93 @@ header h2{
 .menu a {
     text-decoration: none;
     margin-left: 50px;
-    color:white;
+    color: white;
 }
 
-.main{
+.main {
     padding: 50px;
 }
 
-.reg{
-	padding:20px 40px;
-    width:400px;
-	background: rgba(0,0,0,.7);
-	box-shadow: 0 15px 25px rgba(0,0,0,.5);
-    border-radius:10px;
+.reg {
+    padding: 20px 40px;
+    width: 400px;
+    background: rgba(0, 0, 0, .7);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, .5);
+    border-radius: 10px;
     color: #757566;
     margin: auto;
 }
 
-.inputbox{
+.inputbox {
     margin-bottom: 20px;
 }
 
-.reg h2{
-    margin:0 0 20px;
+.reg h2 {
+    margin: 0 0 20px;
     font-size: 25px;
-	padding:0;
-	color:white;
-	text-align:center;
-	border:none;
+    padding: 0;
+    color: white;
+    text-align: center;
+    border: none;
 }
 
-.reg .inputbox input{
-	width:100%;
-	padding:10px 0;
-	font-size:16px;
-	color:white;
-	margin-bottom:20px;
-	border:none;
-	border-bottom:1px solid white;
-	outline:none;
-	background:transparent;
+.reg .inputbox input {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    color: white;
+    margin-bottom: 20px;
+    border: none;
+    border-bottom: 1px solid white;
+    outline: none;
+    background: transparent;
 }
 
-.image{
+.image {
     text-align: center;
     padding: 20px;
 }
 
-.image img{
+.image img {
     height: 180px;
     width: 180px;
     border-radius: 50%;
 }
 
-.bottom{
+.bottom {
     text-align: center;
     color: white;
     overflow: hidden;
 }
 
-.reg input[type="Submit"]{
-	background:transparent;
-	color:white;
-    border:none;
+.reg input[type="Submit"] {
+    background: transparent;
+    color: white;
+    border: none;
     width: 100%;
-	outline:none;
-	background:blue;
-	padding:10px 20px;
-	border-radius:5px;
-	cursor: pointer;
-    float:right;
+    outline: none;
+    background: blue;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    float: right;
     margin-bottom: 10px;
+}
+
+.reg .inputbox textarea {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    color: white;
+    margin-bottom: 20px;
+    border: none;
+    border-bottom: 1px solid white;
+    outline: none;
+    background: transparent;
+    font-family: sans-serif;
+}
+
+.reg input[type="radio"] {
+    width: auto;
+    margin: 0 10px;
 }

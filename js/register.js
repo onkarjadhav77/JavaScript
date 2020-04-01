@@ -7,7 +7,8 @@ let newUser = {
     addr: "",
     gen: "",
     pwd: "",
-    file: ""
+    file: "",
+    todoArr=[]
 };
 
 function getRadio(value) {
@@ -52,14 +53,14 @@ function registerUser() {
     newUser.pwd = document.getElementById("pwd").value;
     newUser.file = document.getElementById("file").value;
 
-        if (emailCheck(newUser.email) == true) {
+    if (emailCheck(newUser.email) == true) {
 
         localStorage.setItem(newUser.email, JSON.stringify(newUser));
         alert("Registered Successfully");
         clear();
         return true;
     }
-    else{
+    else {
         return false;
     }
 }

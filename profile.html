@@ -16,7 +16,7 @@
             <h2>TO-DO</h2>
             <div class="menu">
                 <a href="todo.html">Board</a>
-                <a href="index.html">Logout</a>
+                <a onclick="logout()" href="login.html">Logout</a>
             </div>
         </header>
 
@@ -27,20 +27,23 @@
                     <img src="images/profile.png" id="img" alt="">
                 </div>
                 <div class="inputbox">
-                    <input type="text" name="fname" placeholder="First Name" id="fname" required>
+                    <input type="text" name="fname" placeholder="First Name*" id="fname" readonly required>
 
-                    <input type="text" name="lname" placeholder="Last Name" id="lname" required>
+                    <input type="text" name="lname" placeholder="Last Name*" id="lname" readonly required>
 
-                    <input type="email" name="email" oninput="emailCheck(this.value)" placeholder="e-Mail" id="email"
-                        readonly>
+                    <input type="email" name="email" oninput="emailCheck(this.value)" placeholder="e-Mail*" id="email"
+                        readonly required>
 
-                    <!-- Gender :
+                    <textarea name="addr" placeholder="Address" id="addr" readonly></textarea>
+
+                    Gender :
                     <input type="radio" name="gender" value="M" id="genM" onclick="getRadio(this.value)">Male
-                    <input type="radio" name="gender" value="F" id="genF" onclick="getRadio(this.value)">Female -->
+                    <input type="radio" name="gender" value="F" id="genF" onclick="getRadio(this.value)">Female
                 </div>
 
                 <div class="bottom">
-                    <input type="Submit" id="submit" value="Submit">
+                    <input type="Submit" id="submit" value="Save Changes" style="display: none;">
+                    <input type="Submit" id="edit" value="Edit Profile">
                 </div>
             </div>
         </section>

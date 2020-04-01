@@ -2,7 +2,7 @@
     box-sizing: border-box;
 }
 
-body{
+body {
     height: 100%;
     width: 100%;
     background-image: url("../images/profession.jpg");
@@ -13,13 +13,13 @@ body{
 header {
     overflow: hidden;
     padding: 10px 100px;
-    background-color:#063342;
+    background-color: #063342;
     border-bottom: 1px solid white;
-    color:white;
+    color: white;
     width: 100%;
 }
 
-header h2{
+header h2 {
     float: left;
     font-size: 28px;
 }
@@ -32,17 +32,66 @@ header h2{
 .menu a {
     text-decoration: none;
     margin-left: 50px;
-    color:white;
+    color: white;
 }
 
-.main{
+.main {
     padding: 100px 0;
 }
 
-.todoBlock{
+.reg {
+    padding: 20px 20px;
+    width: 1100px;
     height: 400px;
-    width: 1000px;
+    background: rgba(0, 0, 0, .7);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, .5);
+    border-radius: 10px;
+    color: white;
     margin: auto;
-    background-color: #e7ff11;
 }
 
+.head{
+    width: 100%;
+    padding-bottom: 20px;
+    overflow: hidden;
+}
+
+.head div{
+    float: left;
+    width: 50%;
+}
+
+.head .rightHead{
+    text-align: right;
+}
+
+button, select , input[type="search"]
+{
+    background-color:#2c5666;
+    border: none;
+    color: white;
+    height: 40px;
+    padding: 0 15px;
+    border-radius: 10px;
+    margin: 0 10px;
+}
+
+input[type="search"]{
+    background-color: white;
+    color: black;
+}
+
+.list{
+    width: 100%;
+}
+
+table tr{
+    border-bottom: solid 1px #757566;
+    text-align: center;
+    line-height: 2.5;
+}
+
+table th{
+    font-size: 18px;
+    color:whitesmoke;
+}
