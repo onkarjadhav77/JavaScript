@@ -42,7 +42,6 @@ header h2 {
 .reg {
     padding: 20px 20px;
     width: 1100px;
-    height: 400px;
     background: rgba(0, 0, 0, .7);
     box-shadow: 0 15px 25px rgba(0, 0, 0, .5);
     border-radius: 10px;
@@ -76,6 +75,10 @@ button, select , input[type="search"]
     margin: 0 10px;
 }
 
+.delete{
+    background-color: #e00707;
+}
+
 input[type="search"]{
     background-color: white;
     color: black;
@@ -94,4 +97,9 @@ table tr{
 table th{
     font-size: 18px;
     color:whitesmoke;
+}
+
+table td{
+    padding: 0 10px;
+    word-wrap:break-word;
 }

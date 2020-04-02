@@ -36,32 +36,21 @@
                         <option value="Other">Other</option>
                     </select>
                     <button>Done</button>
-                    <button>Delete</button>
+                    <button class="delete" onclick="deleteSelected()">Delete</button>
                 </div>
                 </div>
 
                 <div class="list">
-                    <table style="width: 100%;">
+                    <table style="width: 100%;" id="table">
                         <tr>
-                            <th><input type="checkbox" name="" id=""></th>
-                            <th>Category</th>
-                            <th>Task(s)</th>
-                            <th>Start Date</th>
-                            <th>End Date</th>
-                            <th>Status</th>
-                            <th>Edit</th>
-                            <th>Delete</th>
-                        </tr>
-
-                        <tr>
-                            <td><input type="checkbox" name="" id=""></td>
-                            <td>Cat 1</td>
-                            <td>Task 1</td>
-                            <td>Date</td>
-                            <td>Date</td>
-                            <td>Pending...</td>
-                            <td><button onclick="window.location.href='newTask.html'">Edit</button></td>
-                            <td><button>Delete</button></td>
+                            <th style="width: 50px;"><input type="checkbox" onclick="selectall()" name="" id="checkbox"></th>
+                            <th style="width: 100px;">Category</th>
+                            <th style="width: 400px;" >Task(s)</th>
+                            <th style="width: 100px;">Start Date</th>
+                            <th style="width: 100px;">End Date</th>
+                            <th style="width: 100px;">Status</th>
+                            <th style="width: 100px;">Edit</th>
+                            <th style="width: 110px;">Delete</th>
                         </tr>
                     </table>
                 </div>

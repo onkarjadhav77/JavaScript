@@ -1,5 +1,5 @@
-let obj = JSON.parse(sessionStorage.getItem(sessionStorage.key(1)));
-let locObj = JSON.parse(localStorage.getItem(sessionStorage.key(1)));
+let obj = JSON.parse(sessionStorage.getItem(sessionStorage.key(sessionStorage.length-1)));
+let locObj = JSON.parse(localStorage.getItem(sessionStorage.key(sessionStorage.length-1)));
 let fillProfile = (function () {
     document.getElementById("fname").value = obj.fname;
     document.getElementById("lname").value = obj.lname;

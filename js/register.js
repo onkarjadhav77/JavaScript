@@ -8,7 +8,7 @@ let newUser = {
     gen: "",
     pwd: "",
     file: "",
-    todoArr=[]
+    todoArr:[]
 };
 
 function getRadio(value) {

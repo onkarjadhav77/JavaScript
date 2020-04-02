@@ -3,13 +3,19 @@ function loginUser() {
     let pwd = document.getElementById("pwd").value;
     let obj = JSON.parse(localStorage.getItem(email));
 
-    if (obj.email === email && obj.pwd === pwd) {
-        document.getElementById("msg").innerHTML = null;
-        sessionStorage.setItem(email, localStorage.getItem(email));
-        return true;
+    if (obj !== null) {
+        if (obj.email === email && obj.pwd === pwd) {
+            document.getElementById("msg").innerHTML = null;
+            sessionStorage.setItem(email, localStorage.getItem(email));
+            return true;
+        }
+        else {
+            document.getElementById("msg").innerHTML = "Email or Password is incorrect";
+            return false;
+        }
     }
     else {
-        document.getElementById("msg").innerHTML = "Email or Password is incorrect";
+        document.getElementById("msg").innerHTML = "Email is not registered";
         return false;
     }
 }
