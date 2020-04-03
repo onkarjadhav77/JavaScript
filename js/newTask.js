@@ -13,10 +13,15 @@ let taskObj={
     category:"",
     startDate:"",
     endDate:"",
+    rem:"",
     remDate:"",
     status:"",
     privacy:""
 };
+
+(function(){
+    document.getElementById("profile").src=locObj.file;
+})();
 
 function getRadio(value) {
     taskObj.privacy = value;
@@ -29,6 +34,7 @@ function getRem(value){
     else{
         document.getElementById("rem").style.display="none";
     }
+    taskObj.rem = value;
 }
 
 function addTask(){

@@ -14,6 +14,7 @@
     <div class="container">
         <header>
             <h2>TO-DO</h2>
+            <img src="images/profile.png" id="profile" alt="">
             <div class="menu">
                 <a href="profile.html">Profile</a>
                 <a href="login.html" onclick="logout()">Logout</a>
@@ -28,30 +29,35 @@
                     <button onclick="window.location.href='newTask.html'">Add New Item</button>
                 </div>
                 <div class="rightHead">
-                    <input type="search" placeholder="Search" id="search">
-                    <select name="" id="category">
+                    <input type="search" placeholder="Search By Title" oninput="search(this.value)" id="search">
+                    <select name="category" id="category" onchange="filter()">
                         <option value="All">All</option>
                         <option value="Personal">Personal</option>
                         <option value="Office">Office</option>
                         <option value="Other">Other</option>
                     </select>
-                    <button>Done</button>
+                    <button onclick="doneSelected()">Done</button>
                     <button class="delete" onclick="deleteSelected()">Delete</button>
                 </div>
                 </div>
 
                 <div class="list">
-                    <table style="width: 100%;" id="table">
+                    <table style="width: 100%;" >
                         <tr>
                             <th style="width: 50px;"><input type="checkbox" onclick="selectall()" name="" id="checkbox"></th>
                             <th style="width: 100px;">Category</th>
-                            <th style="width: 400px;" >Task(s)</th>
+                            <th style="width: 400px;" >Title</th>
                             <th style="width: 100px;">Start Date</th>
                             <th style="width: 100px;">End Date</th>
                             <th style="width: 100px;">Status</th>
                             <th style="width: 100px;">Edit</th>
                             <th style="width: 110px;">Delete</th>
                         </tr>
+
+                        <tbody id="table">
+                            
+                        </tbody>
+                        
                     </table>
                 </div>
             </div>

@@ -47,9 +47,10 @@
                         <input type="radio" name="gender" value="F" id="genF" onclick="getRadio(this.value)"><label for="">Female</label> 
                     </div>
 
-                    <div>
-                        Profile Image:
-                        <input type="file" name="profile" id="file">
+                    <div class="profile">
+                        Profile Image:<br><br>
+                        <img src="images/profile.png" id="profile" alt="">
+                        <input type="file" name="profile" id="file" value="images/profile.png" onchange="addProfilePic()">
                     </div>
 
                     <div class="bottom">

@@ -9,7 +9,9 @@ let check = document.getElementById("check");
 let li = document.getElementsByClassName("check");
 
 (loadList = function () {
-    // clearlist();
+    
+    document.getElementById("profile").src=locObj.file;
+
     for (let i = 0; i < arrlist.length; i++) {
         let list = document.createElement("tr");
         list.innerHTML =
@@ -19,11 +21,22 @@ let li = document.getElementsByClassName("check");
             "<td>" + arrlist[i].startDate + "</td>" +
             "<td>" + arrlist[i].endDate + "</td>" +
             "<td>" + arrlist[i].status + "</td>" +
-            "<td>" + "<button onclick='changelink(" + i + ")' id ='edit'>Edit</button>" + "</td>" +
-            "<td>" + "<button id ='delete' class='delete' onclick='deleteItem(" + i + ")'>Delete</button>" + "</td>"
+            "<td>" + "<button onclick='changelink(" + i + ")' class ='edit disable'>Edit</button>" + "</td>" +
+            "<td>" + "<button  class='delete disable' onclick='deleteItem(" + i + ")'>Delete</button>" + "</td>"
 
 
         table.appendChild(list);
+
+    }
+
+    
+})();
+
+(function(){
+    for(let i = 0; i < arrlist.length; i++) {
+        if(arrlist[i].status=="Done"){
+            document.getElementsByClassName("edit").disabled=true;
+        }
     }
 })();
 
@@ -34,17 +47,12 @@ function deleteItem(value) {
 }
 
 function changelink(value) {
+    sessionStorage.setItem("index", value);
     window.location.href = "editTask.html";
-    document.getElementById("task") = arrlist[value].task;
-    document.getElementById("category") = arrlist[value].category;
-    document.getElementById("startDate") = arrlist[value].startDate;
-    document.getElementById("endDate") = arrlist[value].endDate;
-    document.getElementById("remDate") = arrlist[value].remDate;
-    document.getElementById("privacy") = arrlist[value].privacy;
 }
 
 function selectall() {
-    
+
     for (let i = 0; i < li.length; i++) {
         if (document.getElementById("checkbox").checked == true) {
             li[i].checked = true;
@@ -53,12 +61,12 @@ function selectall() {
             li[i].checked = false;
         }
 
-        
+
     }
 }
 
 function deleteSelected() {
-    
+
     for (let i = 0; i < arrlist.length; i++) {
         if (li[i].checked == true) {
             delete arrlist[i];
@@ -68,18 +76,144 @@ function deleteSelected() {
         return element !== null;
     });
 
-    locObj.todoArr=arrlist;
+    locObj.todoArr = arrlist;
     localStorage.setItem(locObj.email, JSON.stringify(locObj));
     window.location.reload();
 }
 
-function selectCheck(){
-    alert("hay");
-    if(document.getElementsByClassName("check").checked==true){
-        document.getElementById("edit").disabled=true;
-        document.getElementById("edit").style.opacity="0.5";
+function disableEditAndDelete(){
+    let arr = document.getElementsByClassName("disable");
+    for(let i=0; i<arr.length; i++)
+    {
+        arr[i].disabled = true;
+        arr[i].style.opacity = 0.4;
+    }
+}
 
-        document.getElementById("delete").disabled=true;
-        document.getElementById("delete").style.opacity="0.5";
+function enableEditAndDelete(){
+    let arr = document.getElementsByClassName("disable");
+    for(let i=0; i<arr.length; i++)
+    {
+        arr[i].disabled = false;
+        arr[i].style.opacity = 1;
+    }
+}
+
+function selectCheck() {
+    let flag = false;
+    let arr = document.getElementsByClassName("check");
+    for (let i = 0; i < arrlist.length; i++) {
+        if (arr[i].checked == true) {
+            flag = true;
+            break;
+        }
+    }
+
+    if (flag) {
+        disableEditAndDelete();
+    }
+    else {
+        enableEditAndDelete();
+    }
+
+}
+
+function doneSelected() {
+    for (let i = 0; i < arrlist.length; i++) {
+        if (li[i].checked == true) {
+            arrlist[i].status = "Done";
+            document.getElementsByClassName("edit").disabled=true;
+        }
+    }
+    localStorage.setItem(locObj.email, JSON.stringify(locObj));
+    window.location.reload();
+}
+
+function filter() {
+    let sel = document.getElementById("category");
+    let Cat = sel.options[sel.selectedIndex].text;
+    let count = 0;
+    let table1 = document.getElementById("table1");
+
+
+    if (Cat == "Office" || Cat == "Personal" || Cat == "Other") {
+
+        var tableRows = table.getElementsByTagName('tr');
+        var rowCount = tableRows.length;
+
+        for (var x = rowCount - 1; x >= 0; x--) {
+            table.removeChild(tableRows[x]);
+        }
+
+        for (let i = 0; i < arrlist.length; i++) {
+            if (arrlist[i].category == Cat) {
+                let list = document.createElement("tr");
+                list.innerHTML =
+                    "<td>" + "<input type='checkbox' onclick='selectCheck()' class='check'>" + "</td>" +
+                    "<td>" + arrlist[i].category + "</td>" +
+                    "<td>" + arrlist[i].task + "</td>" +
+                    "<td>" + arrlist[i].startDate + "</td>" +
+                    "<td>" + arrlist[i].endDate + "</td>" +
+                    "<td>" + arrlist[i].status + "</td>" +
+                    "<td>" + "<button onclick='changelink(" + i + ")' class ='edit disable'>Edit</button>" + "</td>" +
+                    "<td>" + "<button class='delete disable' onclick='deleteItem(" + i + ")'>Delete</button>" + "</td>"
+
+
+                table.appendChild(list);
+
+            }
+
+        }
+        // window.location.reload();
+    }
+    else if (Cat == "All") {
+        var tableRows = table.getElementsByTagName('tr');
+        var rowCount = tableRows.length;
+
+        for (var x = rowCount - 1; x >= 0; x--) {
+            table.removeChild(tableRows[x]);
+        }
+        loadList();
+    }
+
+  
+
+}
+
+function search(value){
+    for (let i = 0; i < arrlist.length; i++) {
+        if(arrlist[i].task==value.trim()){
+            
+            var tableRows = table.getElementsByTagName('tr');
+            var rowCount = tableRows.length;
+    
+            for (var x = rowCount - 1; x >= 0; x--) {
+                table.removeChild(tableRows[x]);
+            }
+
+            let list = document.createElement("tr");
+                list.innerHTML =
+                    "<td>" + "<input type='checkbox' onclick='selectCheck()' class='check'>" + "</td>" +
+                    "<td>" + arrlist[i].category + "</td>" +
+                    "<td>" + arrlist[i].task + "</td>" +
+                    "<td>" + arrlist[i].startDate + "</td>" +
+                    "<td>" + arrlist[i].endDate + "</td>" +
+                    "<td>" + arrlist[i].status + "</td>" +
+                    "<td>" + "<button onclick='changelink(" + i + ")' class ='edit disable'>Edit</button>" + "</td>" +
+                    "<td>" + "<button class='delete disable' onclick='deleteItem(" + i + ")'>Delete</button>" + "</td>"
+
+
+                table.appendChild(list);
+                break;
+        }
+        else{
+            var tableRows = table.getElementsByTagName('tr');
+            var rowCount = tableRows.length;
+    
+            for (var x = rowCount - 1; x >= 0; x--) {
+                table.removeChild(tableRows[x]);
+            }
+            loadList()
+        }
     }
 }

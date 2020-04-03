@@ -103,6 +103,7 @@ header h2 {
     cursor: pointer;
     float: right;
     margin-bottom: 10px;
+    cursor: pointer;
 }
 
 .reg .inputbox textarea {
@@ -121,4 +122,12 @@ header h2 {
 .reg input[type="radio"] {
     width: auto;
     margin: 0 10px;
+}
+
+#propic{
+    margin-bottom: 10px;
+}
+
+#inputfile{
+    margin-bottom: 20px;
 }

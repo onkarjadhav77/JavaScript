@@ -1,5 +1,5 @@
 let gen = "";
-
+let imgdata;
 let newUser = {
     fname: "",
     lname: "",
@@ -8,7 +8,7 @@ let newUser = {
     gen: "",
     pwd: "",
     file: "",
-    todoArr:[]
+    todoArr: []
 };
 
 function getRadio(value) {
@@ -44,6 +44,17 @@ function pwdCheck(value) {
     }
 }
 
+function addProfilePic() {
+    let profileImage = document.getElementById("file").files[0];
+    let imagereader = new FileReader();
+    imagereader.readAsDataURL(profileImage);
+
+    imagereader.onload = function () {
+        imgdata = imagereader.result;
+        document.getElementById("profile").src = imgdata;
+    };
+}
+
 function registerUser() {
 
     newUser.fname = document.getElementById("fname").value;
@@ -51,7 +62,10 @@ function registerUser() {
     newUser.email = document.getElementById("email").value;
     newUser.addr = document.getElementById("addr").value;
     newUser.pwd = document.getElementById("pwd").value;
-    newUser.file = document.getElementById("file").value;
+    // let imagefile= document.getElementById("profile");
+    // let img= getBase64Image(imagefile);
+
+    newUser.file=imgdata;
 
     if (emailCheck(newUser.email) == true) {
 
@@ -80,6 +94,8 @@ function clear() {
         document.getElementById("genF").checked = false;
     }
 }
+
+
 
 
 

@@ -119,9 +119,16 @@ p {
     cursor: pointer;
     float: right;
     margin-bottom: 10px;
+    cursor: pointer;
 }
 
 .reg a {
     color: white;
     font-size: 14px;
+}
+
+
+img{
+    width: 100px;
+    height: 100px;
 }

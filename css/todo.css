@@ -12,21 +12,33 @@ body {
 
 header {
     overflow: hidden;
-    padding: 10px 100px;
+    padding: 5px 100px 0;
     background-color: #063342;
     border-bottom: 1px solid white;
     color: white;
     width: 100%;
+    position: relative;
+    height: 50px;
 }
 
 header h2 {
     float: left;
     font-size: 28px;
+    margin-top: 5px;
+}
+
+header img{
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    right: 280px;
+    border-radius: 50%;
 }
 
 .menu {
     float: right;
-    padding: 5px 0;
+    padding: 0;
+    margin-top: 10px;
 }
 
 .menu a {
@@ -73,6 +85,7 @@ button, select , input[type="search"]
     padding: 0 15px;
     border-radius: 10px;
     margin: 0 10px;
+    cursor: pointer;
 }
 
 .delete{
@@ -103,3 +116,8 @@ table td{
     padding: 0 10px;
     word-wrap:break-word;
 }
+
+table button{
+    margin: 0;
+}
+

@@ -1,11 +1,50 @@
-// let locObj = JSON.parse(localStorage.getItem(sessionStorage.key(sessionStorage.length - 1)));
-// let arrlist = locObj.todoArr;
+let locObj = JSON.parse(localStorage.getItem(sessionStorage.key(sessionStorage.length - 1)));
+let index = sessionStorage.getItem("index");
+let arrlist = locObj.todoArr[index];
 
-// (function(){
-//     document.getElementById("task")=arrlist[value].task;
-//     document.getElementById("category")=arrlist[value].category;
-//     document.getElementById("startDate")=arrlist[value].startDate;
-//     document.getElementById("endDate")=arrlist[value].endDate;
-//     document.getElementById("remDate")=arrlist[value].remDate;
-//     document.getElementById("privacy")=arrlist[value].privacy;
-// })();
+(function () {
+    document.getElementById("task").value = arrlist.task;
+    document.getElementById("category").value = arrlist.category;
+    document.getElementById("startDate").value = arrlist.startDate;
+    document.getElementById("endDate").value = arrlist.endDate;
+    document.getElementById("remDate").value = arrlist.remDate;
+    if (arrlist.privacy === "Public") {
+        document.getElementById("pubRadio").checked = true;
+    } else {
+        document.getElementById("priRadio").checked = true;
+    }
+    if (arrlist.rem === "Yes") {
+        document.getElementById("yesRadio").checked = true;
+        document.getElementById("rem").style.display = "block";
+    } else {
+        document.getElementById("noRadio").checked = true;
+    }
+
+    document.getElementById("profile").src = locObj.file;
+})();
+
+function getRadio(value) {
+    arrlist.privacy = value;
+}
+
+function getRem(value) {
+    if (value === "Yes") {
+        document.getElementById("rem").style.display = "block";
+    }
+    else {
+        document.getElementById("rem").style.display = "none";
+    }
+    arrlist.rem = value;
+}
+
+function edit() {
+
+    arrlist.task = document.getElementById("task").value;
+    arrlist.category = document.getElementById("category").value;
+    arrlist.startDate = document.getElementById("startDate").value;
+    arrlist.endDate = document.getElementById("endDate").value;
+    arrlist.remDate = document.getElementById("remDate").value;
+    arrlist.status = document.getElementById("status").value;
+    localStorage.setItem(locObj.email, JSON.stringify(locObj));
+    alert("Edited Successfully");
+}
