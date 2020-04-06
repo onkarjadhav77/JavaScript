@@ -60,17 +60,3 @@ function addTask(){
     localStorage.setItem(locObj.email,JSON.stringify(locObj));
     alert("Record Added Successfully");
 }
-
-function checkRadio(value){
-    if(value == 1){
-        document.getElementById("yesRadio").checked = true;
-    }else if(value == 2){
-        document.getElementById("noRadio").checked = true;
-    }
-    else if(value == 3){
-        document.getElementById("pubRadio").checked = true;
-    }
-    else if(value == 4){
-        document.getElementById("priRadio").checked = true;
-    }
-}

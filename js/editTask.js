@@ -13,6 +13,13 @@ function checkAccess(){
 let locObj = JSON.parse(localStorage.getItem(sessionStorage.key(sessionStorage.length - 1)));
 let index = sessionStorage.getItem("index");
 let arrlist = locObj.todoArr[index];
+let today = new Date().toISOString().substr(0, 10);
+document.getElementById("startDate").setAttribute("min", today);
+document.getElementById("remDate").setAttribute("min", today);
+
+function setEndDate(value){
+    document.getElementById("endDate").setAttribute("min", value);
+}
 
 (function () {
     document.getElementById("task").value = arrlist.task;
@@ -56,7 +63,7 @@ function edit() {
     arrlist.startDate = document.getElementById("startDate").value;
     arrlist.endDate = document.getElementById("endDate").value;
     arrlist.remDate = document.getElementById("remDate").value;
-    arrlist.status = document.getElementById("status").value;
+    document.getElementById("status").value = arrlist.status;
     localStorage.setItem(locObj.email, JSON.stringify(locObj));
     alert("Edited Successfully");
 }
