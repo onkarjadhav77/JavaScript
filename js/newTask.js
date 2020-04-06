@@ -32,7 +32,11 @@ let taskObj={
 };
 
 (function(){
-    document.getElementById("profile").src=locObj.file;
+    if (locObj.file === undefined) {
+        document.getElementById("profile").src = "../images/profile.png"
+    } else {
+        document.getElementById("profile").src = locObj.file;
+    }
 })();
 
 function getRadio(value) {

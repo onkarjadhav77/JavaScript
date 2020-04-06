@@ -19,12 +19,18 @@ let fillProfile = (function () {
     document.getElementById("lname").value = obj.lname;
     document.getElementById("email").value = obj.email;
     document.getElementById("addr").value = obj.addr;
-    document.getElementById("img").src = obj.file;
+    
     if(obj.gen==="M")
     {
         document.getElementById("genM").checked=true;
     }else{
         document.getElementById("genF").checked=true;
+    }
+
+    if (locObj.file === undefined) {
+        document.getElementById("profile").src = "../images/profile.png"
+    } else {
+        document.getElementById("profile").src = locObj.file;
     }
 })();
 

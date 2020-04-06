@@ -73,8 +73,6 @@ function registerUser() {
     newUser.addr = document.getElementById("addr").value;
     newUser.file = imgdata;
 
-    console.log(pwdCheck());
-
     if (emailCheck(newUser.email) == true && pwdCheck() == true) {
 
         localStorage.setItem(newUser.email, JSON.stringify(newUser));

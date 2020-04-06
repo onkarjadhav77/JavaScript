@@ -1,22 +1,21 @@
-function checkAccess(){
-    if(localStorage.getItem(sessionStorage.key(sessionStorage.length-1))== null)
-    {
+function checkAccess() {
+    if (localStorage.getItem(sessionStorage.key(sessionStorage.length - 1)) == null) {
         document.getElementsByTagName("body").innerHTML = "You Don't Have Access to this page...!";
-        window.location.href="login.html";
+        window.location.href = "login.html";
         return false;
     }
-    else{
+    else {
         return true;
     }
 }
 
 function logout() {
-    if(confirm("Are You Sure?")){
+    if (confirm("Are You Sure?")) {
         sessionStorage.clear();
     }
-    else{
+    else {
         return false;
-    } 
+    }
 }
 
 let locObj = JSON.parse(localStorage.getItem(sessionStorage.key(sessionStorage.length - 1)));
@@ -26,8 +25,13 @@ let check = document.getElementById("check");
 let li = document.getElementsByClassName("check");
 
 (loadList = function () {
-    
-    document.getElementById("profile").src=locObj.file;
+
+    if (locObj.file === undefined) {
+        document.getElementById("profile").src = "../images/profile.png"
+    } else {
+        document.getElementById("profile").src = locObj.file;
+    }
+
 
     for (let i = 0; i < arrlist.length; i++) {
         let list = document.createElement("tr");
@@ -46,15 +50,7 @@ let li = document.getElementsByClassName("check");
 
     }
 
-    
-})();
 
-(function(){
-    for(let i = 0; i < arrlist.length; i++) {
-        if(arrlist[i].status=="Done"){
-            document.getElementsByClassName("edit").disabled=true;
-        }
-    }
 })();
 
 function deleteItem(value) {
@@ -98,19 +94,17 @@ function deleteSelected() {
     window.location.reload();
 }
 
-function disableEditAndDelete(){
+function disableEditAndDelete() {
     let arr = document.getElementsByClassName("disable");
-    for(let i=0; i<arr.length; i++)
-    {
+    for (let i = 0; i < arr.length; i++) {
         arr[i].disabled = true;
         arr[i].style.opacity = 0.4;
     }
 }
 
-function enableEditAndDelete(){
+function enableEditAndDelete() {
     let arr = document.getElementsByClassName("disable");
-    for(let i=0; i<arr.length; i++)
-    {
+    for (let i = 0; i < arr.length; i++) {
         arr[i].disabled = false;
         arr[i].style.opacity = 1;
     }
@@ -139,7 +133,7 @@ function doneSelected() {
     for (let i = 0; i < arrlist.length; i++) {
         if (li[i].checked == true) {
             arrlist[i].status = "Done";
-            document.getElementsByClassName("edit").disabled=true;
+            document.getElementsByClassName("edit").disabled = true;
         }
     }
     localStorage.setItem(locObj.email, JSON.stringify(locObj));
@@ -193,40 +187,40 @@ function filter() {
         loadList();
     }
 
-  
+
 
 }
 
-function search(value){
+function search(value) {
     for (let i = 0; i < arrlist.length; i++) {
-        if(arrlist[i].task==value.trim()){
-            
+        if (arrlist[i].task == value.trim()) {
+
             var tableRows = table.getElementsByTagName('tr');
             var rowCount = tableRows.length;
-    
+
             for (var x = rowCount - 1; x >= 0; x--) {
                 table.removeChild(tableRows[x]);
             }
 
             let list = document.createElement("tr");
-                list.innerHTML =
-                    "<td>" + "<input type='checkbox' onclick='selectCheck()' class='check'>" + "</td>" +
-                    "<td>" + arrlist[i].category + "</td>" +
-                    "<td>" + arrlist[i].task + "</td>" +
-                    "<td>" + arrlist[i].startDate + "</td>" +
-                    "<td>" + arrlist[i].endDate + "</td>" +
-                    "<td>" + arrlist[i].status + "</td>" +
-                    "<td>" + "<button onclick='changelink(" + i + ")' class ='edit disable'>Edit</button>" + "</td>" +
-                    "<td>" + "<button class='delete disable' onclick='deleteItem(" + i + ")'>Delete</button>" + "</td>"
+            list.innerHTML =
+                "<td>" + "<input type='checkbox' onclick='selectCheck()' class='check'>" + "</td>" +
+                "<td>" + arrlist[i].category + "</td>" +
+                "<td>" + arrlist[i].task + "</td>" +
+                "<td>" + arrlist[i].startDate + "</td>" +
+                "<td>" + arrlist[i].endDate + "</td>" +
+                "<td>" + arrlist[i].status + "</td>" +
+                "<td>" + "<button onclick='changelink(" + i + ")' class ='edit disable'>Edit</button>" + "</td>" +
+                "<td>" + "<button class='delete disable' onclick='deleteItem(" + i + ")'>Delete</button>" + "</td>"
 
 
-                table.appendChild(list);
-                break;
+            table.appendChild(list);
+            break;
         }
-        else{
+        else {
             var tableRows = table.getElementsByTagName('tr');
             var rowCount = tableRows.length;
-    
+
             for (var x = rowCount - 1; x >= 0; x--) {
                 table.removeChild(tableRows[x]);
             }
