@@ -43,7 +43,7 @@ let li = document.getElementsByClassName("check");
             "<td>" + arrlist[i].endDate + "</td>" +
             "<td>" + arrlist[i].status + "</td>" +
             "<td>" + "<button onclick='changelink(" + i + ")' class ='edit disable'>Edit</button>" + "</td>" +
-            "<td>" + "<button  class='delete disable' onclick='deleteItem(" + i + ")'>Delete</button>" + "</td>"
+            "<td>" + "<button  class='delete disable' onclick='return deleteItem(" + i + ")'>Delete</button>" + "</td>"
 
 
         table.appendChild(list);
@@ -54,7 +54,12 @@ let li = document.getElementsByClassName("check");
 })();
 
 function deleteItem(value) {
-    arrlist.splice(value, 1);
+    if (confirm("Are You Sure?")) {
+        arrlist.splice(value, 1);
+    } else {
+        return false;
+    }
+
     localStorage.setItem(locObj.email, JSON.stringify(locObj));
     window.location.reload();
 }
@@ -80,14 +85,20 @@ function selectall() {
 
 function deleteSelected() {
 
-    for (let i = 0; i < arrlist.length; i++) {
-        if (li[i].checked == true) {
-            delete arrlist[i];
+    if (confirm("Are You Sure?")) {
+        for (let i = 0; i < arrlist.length; i++) {
+            if (li[i].checked == true) {
+                delete arrlist[i];
+            }
         }
+        arrlist = arrlist.filter(function (element) {
+            return element !== null;
+        });
+
+    } else {
+        window.location.reload();
+        return false;
     }
-    arrlist = arrlist.filter(function (element) {
-        return element !== null;
-    });
 
     locObj.todoArr = arrlist;
     localStorage.setItem(locObj.email, JSON.stringify(locObj));
@@ -130,6 +141,8 @@ function selectCheck() {
 }
 
 function doneSelected() {
+    if(confirm("Once done, Can not undone, Continue?"))
+    {
     for (let i = 0; i < arrlist.length; i++) {
         if (li[i].checked == true) {
             arrlist[i].status = "Done";
@@ -138,6 +151,11 @@ function doneSelected() {
     }
     localStorage.setItem(locObj.email, JSON.stringify(locObj));
     window.location.reload();
+}else{
+    window.location.reload();
+    return false;
+}
+    
 }
 
 function filter() {
