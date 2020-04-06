@@ -34,13 +34,23 @@ function emailCheck(value) {
 }
 
 function pwdCheck(value) {
-    if (value !== document.getElementById("pwd").value) {
+    let password = document.getElementById("pwd").value;
+    let conpassword = document.getElementById("conpwd").value;
+
+    if (conpassword != password) {
         document.getElementById("pwdCheck").innerHTML = "Password Not Matched";
-        // return false;
+        return false;
     }
-    else {
-        document.getElementById("pwdCheck").innerHTML = "";
-        // return true;
+    document.getElementById("pwdCheck").innerHTML = "";
+    newUser.pwd = document.getElementById("pwd").value;
+    return true;
+}
+
+function checkRadio(value){
+    if(value == 1){
+        document.getElementById("genM").checked = true;
+    }else if(value == 2){
+        document.getElementById("genF").checked = true;
     }
 }
 
@@ -61,37 +71,18 @@ function registerUser() {
     newUser.lname = document.getElementById("lname").value;
     newUser.email = document.getElementById("email").value;
     newUser.addr = document.getElementById("addr").value;
-    newUser.pwd = document.getElementById("pwd").value;
-    // let imagefile= document.getElementById("profile");
-    // let img= getBase64Image(imagefile);
+    newUser.file = imgdata;
 
-    newUser.file=imgdata;
+    console.log(pwdCheck());
 
-    if (emailCheck(newUser.email) == true) {
+    if (emailCheck(newUser.email) == true && pwdCheck() == true) {
 
         localStorage.setItem(newUser.email, JSON.stringify(newUser));
         alert("Registered Successfully");
-        clear();
         return true;
     }
     else {
         return false;
-    }
-}
-
-function clear() {
-    document.getElementById("fname").value = null;
-    document.getElementById("lname").value = null;
-    document.getElementById("email").value = null;
-    document.getElementById("addr").value = null;
-    document.getElementById("pwd").value = null;
-    document.getElementById("file").value = null;
-    document.getElementById("conpwd").value = null;
-    if (document.getElementById("genM").checked == true) {
-        document.getElementById("genM").checked = false;
-    }
-    else {
-        document.getElementById("genF").checked = false;
     }
 }
 

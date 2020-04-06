@@ -39,12 +39,12 @@
                         <input type="password" name="pwd" placeholder="Password*" id="pwd" required>
 
                         <input type="password" name="user" placeholder="Confirm Password*"
-                            oninput="return pwdCheck(this.value)" id="conpwd" required>
+                            oninput="pwdCheck()" id="conpwd" required>
 
                         <p id="pwdCheck"></p><br>
                         Gender :
-                        <input type="radio" name="gender" value="M" id="genM" onclick="getRadio(this.value)"><label for="">Male</label>  
-                        <input type="radio" name="gender" value="F" id="genF" onclick="getRadio(this.value)"><label for="">Female</label> 
+                        <span onclick="checkRadio(1)"><input type="radio" name="gender" value="M" id="genM" onclick="getRadio(this.value)">Male</span>
+                        <span onclick="checkRadio(2)"><input type="radio" name="gender" value="F" id="genF" onclick="getRadio(this.value)">Female</span> 
                     </div>
 
                     <div class="profile">

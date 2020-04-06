@@ -90,7 +90,7 @@ header h2 {
 
 .reg input[type="radio"] {
     width: auto;
-    margin: 0 10px;
+    margin: 0 20px;
 }
 
 .reg input[type="file"] {
@@ -131,4 +131,8 @@ p {
 img{
     width: 100px;
     height: 100px;
+}
+
+span{
+    cursor: pointer;
 }
