@@ -1,5 +1,10 @@
 function logout() {
-    sessionStorage.clear();
+    if(confirm("Are You Sure?")){
+        sessionStorage.clear();
+    }
+    else{
+        return false;
+    } 
 }
 
 let locObj = JSON.parse(localStorage.getItem(sessionStorage.key(sessionStorage.length - 1)));

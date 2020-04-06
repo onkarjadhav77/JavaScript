@@ -67,5 +67,10 @@ savebtn.addEventListener("click", function () {
 });
 
 function logout() {
-    sessionStorage.clear();
+    if(confirm("Are You Sure?")){
+        sessionStorage.clear();
+    }
+    else{
+        return false;
+    } 
 }
