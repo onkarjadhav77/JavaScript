@@ -27,7 +27,7 @@ header h2 {
     margin-top: 5px;
 }
 
-header img{
+header img {
     width: 40px;
     height: 40px;
     position: absolute;
@@ -74,7 +74,7 @@ header img{
     border: none;
 }
 
-.reg .inputbox input{
+.reg .inputbox input {
     width: 100%;
     padding: 10px 0;
     font-size: 16px;
@@ -92,7 +92,7 @@ header img{
     overflow: hidden;
 }
 
-.reg input[type="Submit"] , select{
+.reg input[type="Submit"], select {
     color: white;
     border: none;
     width: 100%;
@@ -106,12 +106,12 @@ header img{
     cursor: pointer;
 }
 
-label{
+label {
     color: white;
     font-size: 16px;
 }
 
-select{
+select {
     margin: 10px 0 20px;
 }
 
@@ -124,10 +124,10 @@ select{
     margin: 10px 10px 20px;
 }
 
-.star{
+.star {
     color: red;
 }
 
-span{
+span {
     cursor: pointer;
 }

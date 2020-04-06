@@ -24,47 +24,51 @@
         <section class="main">
             <div class="reg">
                 <form onsubmit="edit()" action="todo.html">
-                <h2>Edit Task</h2>
-                <div class="inputbox">
-                    <label for="task">Title <span class="star">*</span> : </label><br>
-                    <input type="text" name="task" id="task" required>
+                    <h2>Edit Task</h2>
+                    <div class="inputbox">
+                        <label for="task">Title <span class="star">*</span> : </label><br>
+                        <input type="text" name="task" id="task" required>
 
-                    <div>
-                    <label for="">Category : </label><br>
-                    <select name="" id="category">
-                        <option value="Personal">Personal</option>
-                        <option value="Office">Office</option>
-                        <option value="Other">Other</option>
-                    </select>
-                </div>
+                        <div>
+                            <label for="">Category : </label><br>
+                            <select name="" id="category">
+                                <option value="Personal">Personal</option>
+                                <option value="Office">Office</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
 
-                    <label for="">Start Date : </label>
-                    <input type="date" name="startDate" oninput="setEndDate(this.value)" min="" id="startDate">
+                        <label for="">Start Date : </label>
+                        <input type="date" name="startDate" oninput="setEndDate(this.value)" min="" id="startDate">
 
-                    <label for="">End Date : </label>
-                    <input type="date" name="endDate" id="endDate">
+                        <label for="">End Date : </label>
+                        <input type="date" name="endDate" id="endDate">
 
-                    <label for="">Reminder : </label>
-                    <span onclick="checkRadio(1)"><input type="radio" name="rem" id="yesRadio" value="Yes" onclick="getRem(this.value)">Yes</span>
-                    <span onclick="checkRadio(2)"><input type="radio" name="rem" id="noRadio" value="No" onclick="getRem(this.value)">No </span><br>
+                        <label for="">Reminder : </label>
+                        <span onclick="checkRadio(1)"><input type="radio" name="rem" id="yesRadio" value="Yes"
+                                onclick="getRem(this.value)">Yes</span>
+                        <span onclick="checkRadio(2)"><input type="radio" name="rem" id="noRadio" value="No"
+                                onclick="getRem(this.value)">No </span><br>
 
-                    <div id="rem" style="display: none;">
-                    <label for="">Reminder Date : </label>
-                    <input type="date" name="remDate" min="" id="remDate">
-                </div>
+                        <div id="rem" style="display: none;">
+                            <label for="">Reminder Date : </label>
+                            <input type="date" name="remDate" min="" id="remDate">
+                        </div>
 
-                    <input type="hidden" name="status" id="status" value="Pending">
-                    <label for="">Privacy : </label>
-                    <span onclick="checkRadio(3)"><input type="radio" name="privacy" id="pubRadio" onclick="getRadio(this.value)">Public</span>
-                    <span onclick="checkRadio(4)"><input type="radio" name="privacy" id="priRadio" onclick="getRadio(this.value)">Private</span>
-                </div>
+                        <input type="hidden" name="status" id="status" value="Pending">
+                        <label for="">Privacy : </label>
+                        <span onclick="checkRadio(3)"><input type="radio" name="privacy" id="pubRadio"
+                                onclick="getRadio(this.value)">Public</span>
+                        <span onclick="checkRadio(4)"><input type="radio" name="privacy" id="priRadio"
+                                onclick="getRadio(this.value)">Private</span>
+                    </div>
 
-                <div class="bottom">
-                    <input type="Submit" id="submit" value="Submit">
-                </div>
-            </form>
+                    <div class="bottom">
+                        <input type="Submit" id="submit" value="Submit">
+                    </div>
+                </form>
             </div>
-            
+
         </section>
 
     </div>

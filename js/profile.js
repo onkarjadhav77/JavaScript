@@ -1,17 +1,16 @@
-function checkAccess(){
-    if(localStorage.getItem(sessionStorage.key(sessionStorage.length-1))== null)
-    {
+function checkAccess() {
+    if (localStorage.getItem(sessionStorage.key(sessionStorage.length - 1)) == null) {
         document.getElementsByTagName("body").innerHTML = "You Don't Have Access to this page...!";
-        window.location.href="login.html";
+        window.location.href = "login.html";
         return false;
     }
-    else{
+    else {
         return true;
     }
 }
 
-let obj = JSON.parse(sessionStorage.getItem(sessionStorage.key(sessionStorage.length-1)));
-let locObj = JSON.parse(localStorage.getItem(sessionStorage.key(sessionStorage.length-1)));
+let obj = JSON.parse(sessionStorage.getItem(sessionStorage.key(sessionStorage.length - 1)));
+let locObj = JSON.parse(localStorage.getItem(sessionStorage.key(sessionStorage.length - 1)));
 let imgdata;
 
 let fillProfile = (function () {
@@ -19,12 +18,11 @@ let fillProfile = (function () {
     document.getElementById("lname").value = obj.lname;
     document.getElementById("email").value = obj.email;
     document.getElementById("addr").value = obj.addr;
-    
-    if(obj.gen==="M")
-    {
-        document.getElementById("genM").checked=true;
-    }else{
-        document.getElementById("genF").checked=true;
+
+    if (obj.gen === "M") {
+        document.getElementById("genM").checked = true;
+    } else {
+        document.getElementById("genF").checked = true;
     }
 
     if (locObj.file === undefined) {
@@ -43,8 +41,8 @@ editbtn.addEventListener("click", function () {
     document.getElementById("addr").readOnly = false;
     editbtn.style.display = "none";
     savebtn.style.display = "block";
-    document.getElementById("inputfile").style.display="block";
-    document.getElementById("propic").style.display="block";
+    document.getElementById("inputfile").style.display = "block";
+    document.getElementById("propic").style.display = "block";
 });
 
 function getRadio(value) {
@@ -68,35 +66,35 @@ savebtn.addEventListener("click", function () {
     obj.fname = document.getElementById("fname").value;
     obj.lname = document.getElementById("lname").value;
     obj.addr = document.getElementById("addr").value;
-    obj.file= imgdata;
+    obj.file = imgdata;
     locObj.fname = document.getElementById("fname").value;
     locObj.lname = document.getElementById("lname").value;
     locObj.addr = document.getElementById("addr").value;
-    locObj.file=imgdata;
-    localStorage.setItem(sessionStorage.key(sessionStorage.length-1), JSON.stringify(locObj));
-    sessionStorage.setItem(sessionStorage.key(sessionStorage.length-1), JSON.stringify(obj));
+    locObj.file = imgdata;
+    localStorage.setItem(sessionStorage.key(sessionStorage.length - 1), JSON.stringify(locObj));
+    sessionStorage.setItem(sessionStorage.key(sessionStorage.length - 1), JSON.stringify(obj));
     editbtn.style.display = "block";
     savebtn.style.display = "none";
     document.getElementById("fname").readOnly = true;
     document.getElementById("lname").readOnly = true;
     document.getElementById("addr").readOnly = true;
-    document.getElementById("inputfile").style.display="none";
-    document.getElementById("propic").style.display="none";
+    document.getElementById("inputfile").style.display = "none";
+    document.getElementById("propic").style.display = "none";
 });
 
 function logout() {
-    if(confirm("Are You Sure?")){
+    if (confirm("Are You Sure?")) {
         sessionStorage.clear();
     }
-    else{
+    else {
         return false;
-    } 
+    }
 }
 
-function checkRadio(value){
-    if(value == 1){
+function checkRadio(value) {
+    if (value == 1) {
         document.getElementById("genM").checked = true;
-    }else if(value == 2){
+    } else if (value == 2) {
         document.getElementById("genF").checked = true;
     }
 }

@@ -127,12 +127,11 @@ p {
     font-size: 14px;
 }
 
-
-img{
+img {
     width: 100px;
     height: 100px;
 }
 
-span{
+span {
     cursor: pointer;
 }

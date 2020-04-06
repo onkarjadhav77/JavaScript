@@ -46,10 +46,10 @@ function pwdCheck(value) {
     return true;
 }
 
-function checkRadio(value){
-    if(value == 1){
+function checkRadio(value) {
+    if (value == 1) {
         document.getElementById("genM").checked = true;
-    }else if(value == 2){
+    } else if (value == 2) {
         document.getElementById("genF").checked = true;
     }
 }

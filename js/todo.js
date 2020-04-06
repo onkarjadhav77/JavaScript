@@ -141,21 +141,20 @@ function selectCheck() {
 }
 
 function doneSelected() {
-    if(confirm("Once done, Can not undone, Continue?"))
-    {
-    for (let i = 0; i < arrlist.length; i++) {
-        if (li[i].checked == true) {
-            arrlist[i].status = "Done";
-            document.getElementsByClassName("edit").disabled = true;
+    if (confirm("Once done, Can not undone, Continue?")) {
+        for (let i = 0; i < arrlist.length; i++) {
+            if (li[i].checked == true) {
+                arrlist[i].status = "Done";
+                document.getElementsByClassName("edit").disabled = true;
+            }
         }
+        localStorage.setItem(locObj.email, JSON.stringify(locObj));
+        window.location.reload();
+    } else {
+        window.location.reload();
+        return false;
     }
-    localStorage.setItem(locObj.email, JSON.stringify(locObj));
-    window.location.reload();
-}else{
-    window.location.reload();
-    return false;
-}
-    
+
 }
 
 function filter() {

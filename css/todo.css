@@ -27,7 +27,7 @@ header h2 {
     margin-top: 5px;
 }
 
-header img{
+header img {
     width: 40px;
     height: 40px;
     position: absolute;
@@ -61,24 +61,23 @@ header img{
     margin: auto;
 }
 
-.head{
+.head {
     width: 100%;
     padding-bottom: 20px;
     overflow: hidden;
 }
 
-.head div{
+.head div {
     float: left;
     width: 50%;
 }
 
-.head .rightHead{
+.head .rightHead {
     text-align: right;
 }
 
-button, select , input[type="search"]
-{
-    background-color:#2c5666;
+button, select, input[type="search"] {
+    background-color: #2c5666;
     border: none;
     color: white;
     height: 40px;
@@ -88,36 +87,35 @@ button, select , input[type="search"]
     cursor: pointer;
 }
 
-.delete{
+.delete {
     background-color: #e00707;
 }
 
-input[type="search"]{
+input[type="search"] {
     background-color: white;
     color: black;
 }
 
-.list{
+.list {
     width: 100%;
 }
 
-table tr{
+table tr {
     border-bottom: solid 1px #757566;
     text-align: center;
     line-height: 2.5;
 }
 
-table th{
+table th {
     font-size: 18px;
-    color:whitesmoke;
+    color: whitesmoke;
 }
 
-table td{
+table td {
     padding: 0 10px;
-    word-wrap:break-word;
+    word-wrap: break-word;
 }
 
-table button{
+table button {
     margin: 0;
 }
-

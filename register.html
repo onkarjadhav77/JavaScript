@@ -38,19 +38,22 @@
 
                         <input type="password" name="pwd" placeholder="Password*" id="pwd" required>
 
-                        <input type="password" name="user" placeholder="Confirm Password*"
-                            oninput="pwdCheck()" id="conpwd" required>
+                        <input type="password" name="user" placeholder="Confirm Password*" oninput="pwdCheck()"
+                            id="conpwd" required>
 
                         <p id="pwdCheck"></p><br>
                         Gender :
-                        <span onclick="checkRadio(1)"><input type="radio" name="gender" value="M" id="genM" onclick="getRadio(this.value)">Male</span>
-                        <span onclick="checkRadio(2)"><input type="radio" name="gender" value="F" id="genF" onclick="getRadio(this.value)">Female</span> 
+                        <span onclick="checkRadio(1)"><input type="radio" name="gender" value="M" id="genM"
+                                onclick="getRadio(this.value)">Male</span>
+                        <span onclick="checkRadio(2)"><input type="radio" name="gender" value="F" id="genF"
+                                onclick="getRadio(this.value)">Female</span>
                     </div>
 
                     <div class="profile">
                         Profile Image:<br><br>
                         <img src="images/profile.png" id="profile" alt="">
-                        <input type="file" name="profile" id="file" value="images/profile.png" onchange="addProfilePic()">
+                        <input type="file" name="profile" id="file" value="images/profile.png"
+                            onchange="addProfilePic()">
                     </div>
 
                     <div class="bottom">

@@ -26,27 +26,28 @@
             <div class="reg">
                 <div class="head">
                     <div class="leftHead">
-                    <button onclick="window.location.href='newTask.html'">Add New Item</button>
-                </div>
-                <div class="rightHead">
-                    <input type="search" placeholder="Search By Title" oninput="search(this.value)" id="search">
-                    <select name="category" id="category" onchange="filter()">
-                        <option value="All">All</option>
-                        <option value="Personal">Personal</option>
-                        <option value="Office">Office</option>
-                        <option value="Other">Other</option>
-                    </select>
-                    <button onclick="return doneSelected()">Done</button>
-                    <button class="delete" onclick="return deleteSelected()">Delete</button>
-                </div>
+                        <button onclick="window.location.href='newTask.html'">Add New Item</button>
+                    </div>
+                    <div class="rightHead">
+                        <input type="search" placeholder="Search By Title" oninput="search(this.value)" id="search">
+                        <select name="category" id="category" onchange="filter()">
+                            <option value="All">All</option>
+                            <option value="Personal">Personal</option>
+                            <option value="Office">Office</option>
+                            <option value="Other">Other</option>
+                        </select>
+                        <button onclick="return doneSelected()">Done</button>
+                        <button class="delete" onclick="return deleteSelected()">Delete</button>
+                    </div>
                 </div>
 
                 <div class="list">
-                    <table style="width: 100%;" >
+                    <table style="width: 100%;">
                         <tr>
-                            <th style="width: 50px;"><input type="checkbox" onclick="selectall()" name="" id="checkbox"></th>
+                            <th style="width: 50px;"><input type="checkbox" onclick="selectall()" name="" id="checkbox">
+                            </th>
                             <th style="width: 100px;">Category</th>
-                            <th style="width: 400px;" >Title</th>
+                            <th style="width: 400px;">Title</th>
                             <th style="width: 100px;">Start Date</th>
                             <th style="width: 100px;">End Date</th>
                             <th style="width: 100px;">Status</th>
@@ -55,9 +56,9 @@
                         </tr>
 
                         <tbody id="table">
-                            
+
                         </tbody>
-                        
+
                     </table>
                 </div>
             </div>
