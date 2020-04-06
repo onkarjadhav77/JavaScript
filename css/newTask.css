@@ -124,6 +124,10 @@ select{
     margin: 10px 10px 20px;
 }
 
-span{
+.star{
     color: red;
+}
+
+span{
+    cursor: pointer;
 }
