@@ -1,3 +1,15 @@
+function checkAccess(){
+    if(localStorage.getItem(sessionStorage.key(sessionStorage.length-1))== null)
+    {
+        document.getElementsByTagName("body").innerHTML = "You Don't Have Access to this page...!";
+        window.location.href="login.html";
+        return false;
+    }
+    else{
+        return true;
+    }
+}
+
 let today = new Date().toISOString().substr(0, 10);
 document.getElementById("startDate").setAttribute("min", today);
 document.getElementById("remDate").setAttribute("min", today);

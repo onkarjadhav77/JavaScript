@@ -1,3 +1,15 @@
+function checkAccess(){
+    if(localStorage.getItem(sessionStorage.key(sessionStorage.length-1))== null)
+    {
+        document.getElementsByTagName("body").innerHTML = "You Don't Have Access to this page...!";
+        window.location.href="login.html";
+        return false;
+    }
+    else{
+        return true;
+    }
+}
+
 function logout() {
     if(confirm("Are You Sure?")){
         sessionStorage.clear();
