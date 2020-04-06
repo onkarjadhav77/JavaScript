@@ -131,3 +131,7 @@ header h2 {
 #inputfile{
     margin-bottom: 20px;
 }
+
+span{
+    cursor: pointer;
+}
