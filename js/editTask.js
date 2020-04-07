@@ -14,10 +14,16 @@ let index = sessionStorage.getItem("index");
 let arrlist = locObj.todoArr[index];
 let today = new Date().toISOString().substr(0, 10);
 document.getElementById("startDate").setAttribute("min", today);
-document.getElementById("remDate").setAttribute("min", today);
+document.getElementById("remDate").setAttribute("min", arrlist.startDate);
+document.getElementById("endDate").setAttribute("min", arrlist.startDate);
+document.getElementById("remDate").setAttribute("max", arrlist.endDate);
 
 function setEndDate(value) {
     document.getElementById("endDate").setAttribute("min", value);
+}
+
+function setRemDate(value) {
+    document.getElementById("remDate").setAttribute("max", value);
 }
 
 (function () {
@@ -45,6 +51,24 @@ function setEndDate(value) {
     }
 })();
 
+function checkRadio(value) {
+    if (value == "Yes") {
+        document.getElementById("yesRadio").checked = true;
+        getRem(value);
+    } else if (value == "No") {
+        document.getElementById("noRadio").checked = true;
+        getRem(value);
+    }
+    else if (value == "Public") {
+        document.getElementById("pubRadio").checked = true;
+        getRadio(value);
+    }
+    else if (value == "Private") {
+        document.getElementById("priRadio").checked = true;
+        getRadio(value);
+    }
+}
+
 function getRadio(value) {
     arrlist.privacy = value;
 }
@@ -71,16 +95,4 @@ function edit() {
     alert("Edited Successfully");
 }
 
-function checkRadio(value) {
-    if (value == 1) {
-        document.getElementById("yesRadio").checked = true;
-    } else if (value == 2) {
-        document.getElementById("noRadio").checked = true;
-    }
-    else if (value == 3) {
-        document.getElementById("pubRadio").checked = true;
-    }
-    else if (value == 4) {
-        document.getElementById("priRadio").checked = true;
-    }
-}
+

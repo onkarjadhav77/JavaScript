@@ -98,6 +98,43 @@ header h2 {
     margin: 15px 0 20px;
 }
 
+.tooltip {
+    position: relative;
+    width: 100%;
+    display: inline-block;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 250px;
+    background-color: black;
+    color: #e5e5e5;
+    line-height: 1.5;
+    border-radius: 6px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    top: -100%;
+    left: 105%;
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 100%;
+    margin-top: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent black transparent transparent;
+}
+
+.reg input:required {
+    box-shadow: none;
+}
+
 p {
     color: red;
 }

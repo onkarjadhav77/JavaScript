@@ -83,12 +83,7 @@ savebtn.addEventListener("click", function () {
 });
 
 function logout() {
-    if (confirm("Are You Sure?")) {
-        sessionStorage.clear();
-    }
-    else {
-        return false;
-    }
+    sessionStorage.clear();
 }
 
 function checkRadio(value) {

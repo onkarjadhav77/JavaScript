@@ -10,12 +10,7 @@ function checkAccess() {
 }
 
 function logout() {
-    if (confirm("Are You Sure?")) {
-        sessionStorage.clear();
-    }
-    else {
-        return false;
-    }
+    sessionStorage.clear();
 }
 
 let locObj = JSON.parse(localStorage.getItem(sessionStorage.key(sessionStorage.length - 1)));
@@ -32,25 +27,44 @@ let li = document.getElementsByClassName("check");
         document.getElementById("profile").src = locObj.file;
     }
 
+    if (arrlist.length == 0) {
+        let list = document.createElement("tr");
+        list.innerHTML = "<td colspan='8'>No Record Found</td>";
+        table.appendChild(list);
+    }
 
     for (let i = 0; i < arrlist.length; i++) {
         let list = document.createElement("tr");
-        list.innerHTML =
-            "<td>" + "<input type='checkbox' onclick='selectCheck()' class='check'>" + "</td>" +
-            "<td>" + arrlist[i].category + "</td>" +
-            "<td>" + arrlist[i].task + "</td>" +
-            "<td>" + arrlist[i].startDate + "</td>" +
-            "<td>" + arrlist[i].endDate + "</td>" +
-            "<td>" + arrlist[i].status + "</td>" +
-            "<td>" + "<button onclick='changelink(" + i + ")' class ='edit disable'>Edit</button>" + "</td>" +
-            "<td>" + "<button  class='delete disable' onclick='return deleteItem(" + i + ")'>Delete</button>" + "</td>"
+        if (arrlist[i].status === "Done") {
+            list.innerHTML =
+                "<td>" + "<input type='checkbox' onclick='selectCheck()' class='check'>" + "</td>" +
+                "<td>" + arrlist[i].category + "</td>" +
+                "<td>" + arrlist[i].task + "</td>" +
+                "<td>" + arrlist[i].startDate + "</td>" +
+                "<td>" + arrlist[i].endDate + "</td>" +
+                "<td>" + arrlist[i].status + "</td>" +
+                "<td>" + "<button onclick='changelink(" + i + ")' style='opacity:0.4' disabled>Edit</button>" + "</td>" +
+                "<td>" + "<button  class='delete disable' onclick='return deleteItem(" + i + ")'>Delete</button>" + "</td>"
 
 
-        table.appendChild(list);
+            table.appendChild(list);
+        }
 
+        else if (arrlist[i].status === "Pending") {
+            list.innerHTML =
+                "<td>" + "<input type='checkbox' onclick='selectCheck()' class='check'>" + "</td>" +
+                "<td>" + arrlist[i].category + "</td>" +
+                "<td>" + arrlist[i].task + "</td>" +
+                "<td>" + arrlist[i].startDate + "</td>" +
+                "<td>" + arrlist[i].endDate + "</td>" +
+                "<td>" + arrlist[i].status + "</td>" +
+                "<td>" + "<button onclick='changelink(" + i + ")' class ='edit disable'>Edit</button>" + "</td>" +
+                "<td>" + "<button  class='delete disable' onclick='return deleteItem(" + i + ")'>Delete</button>" + "</td>"
+
+
+            table.appendChild(list);
+        }
     }
-
-
 })();
 
 function deleteItem(value) {
@@ -74,9 +88,11 @@ function selectall() {
     for (let i = 0; i < li.length; i++) {
         if (document.getElementById("checkbox").checked == true) {
             li[i].checked = true;
+            disableEditAndDelete();
         }
         else {
             li[i].checked = false;
+            enableEditAndDelete()
         }
 
 
@@ -111,6 +127,10 @@ function disableEditAndDelete() {
         arr[i].disabled = true;
         arr[i].style.opacity = 0.4;
     }
+    document.getElementById("delbtn").disabled = false;
+    document.getElementById("donebtn").disabled = false;
+    document.getElementById("delbtn").style.opacity = 1;
+    document.getElementById("donebtn").style.opacity = 1;
 }
 
 function enableEditAndDelete() {
@@ -119,6 +139,10 @@ function enableEditAndDelete() {
         arr[i].disabled = false;
         arr[i].style.opacity = 1;
     }
+    document.getElementById("delbtn").disabled = true;
+    document.getElementById("donebtn").disabled = true;
+    document.getElementById("delbtn").style.opacity = 0.4;
+    document.getElementById("donebtn").style.opacity = 0.4;
 }
 
 function selectCheck() {
@@ -174,6 +198,7 @@ function filter() {
         }
 
         for (let i = 0; i < arrlist.length; i++) {
+
             if (arrlist[i].category == Cat) {
                 let list = document.createElement("tr");
                 list.innerHTML =
@@ -190,6 +215,11 @@ function filter() {
                 table.appendChild(list);
 
             }
+            else if (arrlist[i].category != Cat) {
+                let list = document.createElement("tr");
+                list.innerHTML = "<td colspan='8'>No Record Found</td>";
+                table.appendChild(list);
+            }
 
         }
         // window.location.reload();
@@ -204,13 +234,11 @@ function filter() {
         loadList();
     }
 
-
-
 }
 
 function search(value) {
     for (let i = 0; i < arrlist.length; i++) {
-        if (arrlist[i].task == value.trim()) {
+        if (arrlist[i].task.toLowerCase() == value.toLowerCase()) {
 
             var tableRows = table.getElementsByTagName('tr');
             var rowCount = tableRows.length;
