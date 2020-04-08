@@ -13,6 +13,22 @@ let obj = JSON.parse(sessionStorage.getItem(sessionStorage.key(sessionStorage.le
 let locObj = JSON.parse(localStorage.getItem(sessionStorage.key(sessionStorage.length - 1)));
 let imgdata;
 
+function getRadio(value) {
+    obj.gen = value;
+    locObj.gen = value;
+
+}
+
+function checkRadio(value) {
+    if (value == "M") {
+        document.getElementById("genM").checked = true;
+        getRadio(value);
+    } else if (value == "F") {
+        document.getElementById("genF").checked = true;
+        getRadio(value);
+    }
+}
+
 let fillProfile = (function () {
     document.getElementById("fname").value = obj.fname;
     document.getElementById("lname").value = obj.lname;
@@ -45,11 +61,6 @@ editbtn.addEventListener("click", function () {
     document.getElementById("propic").style.display = "block";
 });
 
-function getRadio(value) {
-    obj.gen = value;
-    locObj.gen = value;
-
-}
 
 function addProfilePic() {
     let profileImage = document.getElementById("inputfile").files[0];
@@ -86,10 +97,3 @@ function logout() {
     sessionStorage.clear();
 }
 
-function checkRadio(value) {
-    if (value == 1) {
-        document.getElementById("genM").checked = true;
-    } else if (value == 2) {
-        document.getElementById("genF").checked = true;
-    }
-}

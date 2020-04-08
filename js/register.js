@@ -71,10 +71,12 @@ function pwdCheck(value) {
 }
 
 function checkRadio(value) {
-    if (value == 1) {
+    if (value == "M") {
         document.getElementById("genM").checked = true;
-    } else if (value == 2) {
+        getRadio(value);
+    } else if (value == "F") {
         document.getElementById("genF").checked = true;
+        getRadio(value);
     }
 }
 

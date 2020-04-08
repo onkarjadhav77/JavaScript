@@ -21,7 +21,9 @@ let li = document.getElementsByClassName("check");
 
 (loadList = function () {
 
-    document.getElementById("welcome").innerHTML="Welcome "+" "+locObj.fname+" ...!";
+    document.getElementById("category").value="All";
+
+    document.getElementById("welcome").innerHTML = "Welcome " + " " + locObj.fname + " ...!";
 
     if (locObj.file === undefined) {
         document.getElementById("profile").src = "images/profile.png"
@@ -70,7 +72,7 @@ let li = document.getElementsByClassName("check");
 })();
 
 function deleteItem(value) {
-    if (confirm("Are You Sure?")) {
+    if (confirm("Are You Sure, You Want To Delete?")) {
         arrlist.splice(value, 1);
     } else {
         return false;
@@ -103,7 +105,7 @@ function selectall() {
 
 function deleteSelected() {
 
-    if (confirm("Are You Sure?")) {
+    if (confirm("Are You Sure, You Want To Delete?")) {
         for (let i = 0; i < arrlist.length; i++) {
             if (li[i].checked == true) {
                 delete arrlist[i];
@@ -112,11 +114,14 @@ function deleteSelected() {
         arrlist = arrlist.filter(function (element) {
             return element !== null;
         });
+        document.getElementById("checkbox").checked = false;
 
     } else {
         window.location.reload();
+        document.getElementById("checkbox").checked = false;
         return false;
     }
+
 
     locObj.todoArr = arrlist;
     localStorage.setItem(locObj.email, JSON.stringify(locObj));
@@ -175,9 +180,11 @@ function doneSelected() {
             }
         }
         localStorage.setItem(locObj.email, JSON.stringify(locObj));
+        document.getElementById("checkbox").checked = false;
         window.location.reload();
     } else {
         window.location.reload();
+        document.getElementById("checkbox").checked = false;
         return false;
     }
 
@@ -197,6 +204,12 @@ function filter() {
 
         for (var x = rowCount - 1; x >= 0; x--) {
             table.removeChild(tableRows[x]);
+        }
+
+        if (arrlist.length == 0) {
+            let list = document.createElement("tr");
+            list.innerHTML = "<td colspan='8'>No Record Found</td>";
+            table.appendChild(list);
         }
 
         for (let i = 0; i < arrlist.length; i++) {
