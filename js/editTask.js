@@ -45,7 +45,7 @@ function setRemDate(value) {
     }
 
     if (locObj.file === undefined) {
-        document.getElementById("profile").src = "../images/profile.png"
+        document.getElementById("profile").src = "images/profile.png"
     } else {
         document.getElementById("profile").src = locObj.file;
     }

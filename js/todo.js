@@ -21,8 +21,10 @@ let li = document.getElementsByClassName("check");
 
 (loadList = function () {
 
+    document.getElementById("welcome").innerHTML="Welcome "+" "+locObj.fname+" ...!";
+
     if (locObj.file === undefined) {
-        document.getElementById("profile").src = "../images/profile.png"
+        document.getElementById("profile").src = "images/profile.png"
     } else {
         document.getElementById("profile").src = locObj.file;
     }

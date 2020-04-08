@@ -26,7 +26,7 @@ let fillProfile = (function () {
     }
 
     if (locObj.file === undefined) {
-        document.getElementById("img").src = "../images/profile.png"
+        document.getElementById("img").src = "images/profile.png"
     } else {
         document.getElementById("img").src = locObj.file;
     }
