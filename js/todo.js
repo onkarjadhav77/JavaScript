@@ -21,7 +21,8 @@ let li = document.getElementsByClassName("check");
 
 (loadList = function () {
 
-    document.getElementById("category").value="All";
+    document.getElementById("category").value = "All";
+    document.getElementById("checkbox").checked = false;
 
     document.getElementById("welcome").innerHTML = "Welcome " + " " + locObj.fname + " ...!";
 
@@ -35,6 +36,7 @@ let li = document.getElementsByClassName("check");
         let list = document.createElement("tr");
         list.innerHTML = "<td colspan='8'>No Record Found</td>";
         table.appendChild(list);
+        document.getElementById("checkbox").disabled = true;
     }
 
     for (let i = 0; i < arrlist.length; i++) {
@@ -52,6 +54,7 @@ let li = document.getElementsByClassName("check");
 
 
             table.appendChild(list);
+            document.getElementById("checkbox").disabled = false;
         }
 
         else if (arrlist[i].status === "Pending") {
@@ -67,6 +70,7 @@ let li = document.getElementsByClassName("check");
 
 
             table.appendChild(list);
+            document.getElementById("checkbox").disabled = false;
         }
     }
 })();
@@ -210,6 +214,7 @@ function filter() {
             let list = document.createElement("tr");
             list.innerHTML = "<td colspan='8'>No Record Found</td>";
             table.appendChild(list);
+            document.getElementById("checkbox").disabled = true;
         }
 
         for (let i = 0; i < arrlist.length; i++) {
@@ -228,12 +233,14 @@ function filter() {
 
 
                 table.appendChild(list);
+                document.getElementById("checkbox").disabled = false;
 
             }
             else if (arrlist[i].category != Cat) {
                 let list = document.createElement("tr");
                 list.innerHTML = "<td colspan='8'>No Record Found</td>";
                 table.appendChild(list);
+                document.getElementById("checkbox").disabled = true;
             }
 
         }
