@@ -282,16 +282,31 @@ function search(value) {
 
 
             table.appendChild(list);
+            document.getElementById("checkbox").disabled = false;
             break;
         }
-        else {
+        else if(value==""){
             var tableRows = table.getElementsByTagName('tr');
             var rowCount = tableRows.length;
 
             for (var x = rowCount - 1; x >= 0; x--) {
                 table.removeChild(tableRows[x]);
             }
-            loadList()
+            loadList();
+            document.getElementById("checkbox").disabled = false;
+        }
+        else{
+            var tableRows = table.getElementsByTagName('tr');
+            var rowCount = tableRows.length;
+
+            for (var x = rowCount - 1; x >= 0; x--) {
+                table.removeChild(tableRows[x]);
+            }
+
+            let list = document.createElement("tr");
+                list.innerHTML = "<td colspan='8'>No Record Found</td>";
+                table.appendChild(list);
+                document.getElementById("checkbox").disabled = true;
         }
     }
 }
