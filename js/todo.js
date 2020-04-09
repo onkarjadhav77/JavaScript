@@ -304,7 +304,7 @@ function search(value) {
             var tableRows = table.getElementsByTagName('tr');
             var rowCount = tableRows.length;
 
-            for (var x = rowCount - 1; x >= 0; x--) {
+            for (var x = rowCount -1; x >= 0; x--) {
                 table.removeChild(tableRows[x]);
             }
 
