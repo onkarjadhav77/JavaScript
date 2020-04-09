@@ -22,6 +22,7 @@ let li = document.getElementsByClassName("check");
 (loadList = function () {
 
     document.getElementById("category").value = "All";
+    document.getElementById("search").value = "";
     document.getElementById("checkbox").checked = false;
 
     document.getElementById("welcome").innerHTML = "Welcome " + " " + locObj.fname + " ...!";
@@ -196,12 +197,12 @@ function doneSelected() {
 
 function filter() {
     let sel = document.getElementById("category");
-    let Cat = sel.options[sel.selectedIndex].text;
+    let cat = sel.options[sel.selectedIndex].text;
     let count = 0;
     let table1 = document.getElementById("table1");
 
 
-    if (Cat == "Office" || Cat == "Personal" || Cat == "Other") {
+    if (cat == "Office" || cat == "Personal" || cat == "Other") {
 
         var tableRows = table.getElementsByTagName('tr');
         var rowCount = tableRows.length;
@@ -219,7 +220,7 @@ function filter() {
 
         for (let i = 0; i < arrlist.length; i++) {
 
-            if (arrlist[i].category == Cat) {
+            if (arrlist[i].category == cat) {
                 let list = document.createElement("tr");
                 list.innerHTML =
                     "<td>" + "<input type='checkbox' onclick='selectCheck()' class='check'>" + "</td>" +
@@ -236,17 +237,18 @@ function filter() {
                 document.getElementById("checkbox").disabled = false;
 
             }
-            else if (arrlist[i].category != Cat) {
+            else if (arrlist[i].category != cat) {
                 let list = document.createElement("tr");
                 list.innerHTML = "<td colspan='8'>No Record Found</td>";
                 table.appendChild(list);
                 document.getElementById("checkbox").disabled = true;
+                break; 
             }
 
         }
         // window.location.reload();
     }
-    else if (Cat == "All") {
+    else if (cat == "All") {
         var tableRows = table.getElementsByTagName('tr');
         var rowCount = tableRows.length;
 
@@ -285,6 +287,7 @@ function search(value) {
             document.getElementById("checkbox").disabled = false;
             break;
         }
+
         else if(value==""){
             var tableRows = table.getElementsByTagName('tr');
             var rowCount = tableRows.length;
@@ -295,6 +298,33 @@ function search(value) {
             loadList();
             document.getElementById("checkbox").disabled = false;
         }
+
+        else if (arrlist[i].task.toLowerCase().indexOf(value.toLowerCase()) != -1) {
+
+            var tableRows = table.getElementsByTagName('tr');
+            var rowCount = tableRows.length;
+
+            for (var x = rowCount - 1; x >= 0; x--) {
+                table.removeChild(tableRows[x]);
+            }
+
+            let list = document.createElement("tr");
+            list.innerHTML =
+                "<td>" + "<input type='checkbox' onclick='selectCheck()' class='check'>" + "</td>" +
+                "<td>" + arrlist[i].category + "</td>" +
+                "<td>" + arrlist[i].task + "</td>" +
+                "<td>" + arrlist[i].startDate + "</td>" +
+                "<td>" + arrlist[i].endDate + "</td>" +
+                "<td>" + arrlist[i].status + "</td>" +
+                "<td>" + "<button onclick='changelink(" + i + ")' class ='edit disable'>Edit</button>" + "</td>" +
+                "<td>" + "<button class='delete disable' onclick='deleteItem(" + i + ")'>Delete</button>" + "</td>"
+
+
+            table.appendChild(list);
+            document.getElementById("checkbox").disabled = false;
+            break;
+        }
+
         else{
             var tableRows = table.getElementsByTagName('tr');
             var rowCount = tableRows.length;
@@ -308,5 +338,6 @@ function search(value) {
                 table.appendChild(list);
                 document.getElementById("checkbox").disabled = true;
         }
+        
     }
 }
