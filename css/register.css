@@ -1,0 +1,174 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url("../images/profession.jpg");
+    height: 100%;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+header {
+    overflow: hidden;
+    padding: 10px 100px;
+    background-color: #063342;
+    border-bottom: 1px solid white;
+    color: white;
+    width: 100%;
+}
+
+header h2 {
+    float: left;
+    font-size: 28px;
+}
+
+.menu {
+    float: right;
+    padding: 5px 0;
+}
+
+.menu a {
+    text-decoration: none;
+    margin-left: 50px;
+    color: white;
+}
+
+.main {
+    padding: 20px;
+    height: 100%;
+}
+
+.reg {
+    padding: 20px 40px;
+    width: 400px;
+    background: rgba(0, 0, 0, .7);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, .5);
+    border-radius: 10px;
+    color: #757566;
+    margin: auto;
+}
+
+.inputbox {
+    margin-bottom: 20px;
+}
+
+.reg h2 {
+    margin: 0 0 20px;
+    font-size: 25px;
+    padding: 0;
+    color: white;
+    text-align: center;
+    border: none;
+}
+
+.reg .inputbox textarea {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    color: white;
+    margin-bottom: 20px;
+    border: none;
+    border-bottom: 1px solid white;
+    outline: none;
+    background: transparent;
+    font-family: sans-serif;
+}
+
+.reg .inputbox input {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    color: white;
+    margin-bottom: 20px;
+    border: none;
+    border-bottom: 1px solid white;
+    outline: none;
+    background: transparent;
+}
+
+.reg input[type="radio"] {
+    width: auto;
+    margin: 0 10px 0 20px;
+}
+
+.reg input[type="file"] {
+    width: auto;
+    margin: 15px 0 20px;
+}
+
+.tooltip {
+    position: relative;
+    width: 100%;
+    display: inline-block;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 250px;
+    background-color: black;
+    color: #e5e5e5;
+    line-height: 1.5;
+    border-radius: 6px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    top: -100%;
+    left: 105%;
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 100%;
+    margin-top: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent black transparent transparent;
+}
+
+.reg input:required {
+    box-shadow: none;
+}
+
+p {
+    color: red;
+}
+
+.bottom {
+    text-align: center;
+    color: white;
+}
+
+.reg input[type="Submit"] {
+    background: transparent;
+    color: white;
+    border: none;
+    width: 100%;
+    outline: none;
+    background: blue;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    float: right;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.reg a {
+    color: white;
+    font-size: 14px;
+}
+
+img {
+    width: 100px;
+    height: 100px;
+}
+
+span {
+    cursor: pointer;
+}

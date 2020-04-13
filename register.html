@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/register.css">
+</head>
+
+<body onload="clear()">
+    <div class="container">
+        <header>
+            <h2>TO-DO</h2>
+            <div class="menu">
+                <a href="index.html">Home</a>
+                <a href="login.html">Login</a>
+                <a href="">Register</a>
+            </div>
+        </header>
+
+        <section class="main">
+            <div class="reg">
+                <h2>Register</h2>
+                <form onsubmit="return registerUser()" action="login.html">
+                    <div class="inputbox">
+                        <input type="text" name="fname" placeholder="First Name *" id="fname" required>
+
+                        <input type="text" name="lname" placeholder="Last Name *" id="lname" required>
+
+                        <input type="email" name="email" value="" oninput="return emailCheck(this.value)"
+                            placeholder="e-Mail *" id="email" required>
+
+                        <p id="emailCheck"></p>
+
+                        <textarea name="addr" placeholder="Address" id="addr"></textarea>
+
+                        <div class="tooltip">
+                            <input type="password" name="pwd" oninput="pwdValid(this.value)" placeholder="Password *"
+                                id="pwd" required>
+                            <span class="tooltiptext" id="tooltiptext">
+                                Password must have minimum 8 characters<br>
+                                Must contain at least- <br>
+                                1. A uppercase letter <br>
+                                2. A lowercase letter <br>
+                                3. A number <br>
+                                4. A special symbol
+                            </span>
+                        </div>
+
+                        <input type="password" name="user" placeholder="Confirm Password *" oninput="pwdCheck()"
+                            id="conpwd" required>
+
+                        <p id="pwdCheck"></p><br>
+                        Gender :
+                        <span onclick="checkRadio('M')"><input type="radio" name="gender" value="M" id="genM"
+                                onclick="getRadio(this.value)">Male</span>
+                        <span onclick="checkRadio('F')"><input type="radio" name="gender" value="F" id="genF"
+                                onclick="getRadio(this.value)">Female</span>
+                    </div>
+
+                    <div class="profile">
+                        Profile Image:<br><br>
+                        <img src="images/profile.png" id="profile" alt="">
+                        <input type="file" name="profile" id="file" value="images/profile.png"
+                            onchange="addProfilePic()">
+                    </div>
+
+                    <div class="bottom">
+                        <input type="Submit" id="submit" value="Submit">
+                        Already a User? <a href="login.html">Login Here</a>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+    </div>
+    <script src="js/register.js"></script>
+</body>
+
+</html>

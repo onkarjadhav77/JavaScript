@@ -1,0 +1,63 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    height: 100%;
+    width: 100%;
+    background-image: url("../images/profession.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+header {
+    overflow: hidden;
+    padding: 10px 100px;
+    background-color: #063342;
+    border-bottom: 1px solid white;
+    color: white;
+    width: 100%;
+}
+
+header h2 {
+    float: left;
+    font-size: 28px;
+}
+
+.menu {
+    float: right;
+    padding: 5px 0;
+}
+
+.menu a {
+    text-decoration: none;
+    margin-left: 50px;
+    color: white;
+}
+
+.main {
+    padding: 150px 300px;
+    text-align: center;
+    color: #e7ff11;
+}
+
+h1 {
+    font-size: 50px;
+    line-height: 1.5;
+    padding: 10px 0;
+    text-decoration: underline;
+}
+
+h3 {
+    font-size: 40px;
+    line-height: 1.5;
+    padding: 10px 0;
+    color: white;
+}
+
+p {
+    font-size: 30px;
+    line-height: 1.5;
+    color: wheat;
+    padding: 10px 0;
+}

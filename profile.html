@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/profile.css">
+</head>
+
+<body onload=" return checkAccess()">
+
+    <div class="container">
+        <header>
+            <h2>TO-DO</h2>
+            <div class="menu">
+                <a href="todo.html">Board</a>
+                <a onclick="return logout()" href="login.html">Logout</a>
+            </div>
+        </header>
+
+        <section class="main">
+            <div class="reg">
+                <h2>Your Profile</h2>
+                <div class="image">
+                    <img src="" id="img" alt="">
+                </div>
+                <div class="inputbox">
+                    <input type="text" name="fname" placeholder="First Name*" id="fname" readonly required>
+
+                    <input type="text" name="lname" placeholder="Last Name*" id="lname" readonly required>
+
+                    <input type="email" name="email" oninput="emailCheck(this.value)" placeholder="e-Mail*" id="email"
+                        readonly required>
+
+                    <textarea name="addr" placeholder="Address" id="addr" readonly></textarea>
+
+                    Gender :
+                    <span onclick="checkRadio('M')"><input type="radio" name="gender" value="M" id="genM"
+                            onclick="getRadio(this.value)">Male</span>
+                    <span onclick="checkRadio('F')"><input type="radio" name="gender" value="F" id="genF"
+                            onclick="getRadio(this.value)">Female</span>
+
+                </div>
+
+
+
+                <label for="" id="propic" style="display: none;">Change Profile Pic : </label>
+                <input type="file" name="" id="inputfile" onchange="addProfilePic()" style="display: none;">
+
+                <div class="bottom">
+                    <input type="Submit" id="submit" value="Save Changes" style="display: none;">
+                    <input type="Submit" id="edit" value="Edit Profile">
+                </div>
+            </div>
+        </section>
+
+    </div>
+    <script src="js/profile.js"></script>
+
+</body>
+
+</html>
